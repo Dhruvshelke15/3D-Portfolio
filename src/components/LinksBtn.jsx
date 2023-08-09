@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../index.css';
+import ResumePdf from '../assets/Dhruv Shelke Resume.pdf';
 
 const LinksBtn = () => {
   function gitVis() {
@@ -30,6 +31,14 @@ const LinksBtn = () => {
       >
         Visit LinkedIn
       </button>
+      <a href={ResumePdf} download="Dhruv's Resume" target="_blank">
+        <button
+          type="submit"
+          className="m-12 mt-20 bg-tertiary hover:bg-green-500 hover:text-primary py-4 px-12 rounded-xl flex items-center outline-none w-fit text-white font-bold shadow-md shadow-primary transition duration-300"
+        >
+          Download Resume
+        </button>
+      </a>
     </div>
   );
 };
