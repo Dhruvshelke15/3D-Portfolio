@@ -1,8 +1,6 @@
-import { motion } from 'framer-motion';
-
 import { styles } from '../styles';
 import { ComputersCanvas } from './canvas';
-import LinksBtn from './LinksBtn';
+import LinksBtn from './canvas/LinksBtn';
 
 const Hero = () => {
   return (
@@ -24,13 +22,12 @@ const Hero = () => {
             interfaces and Web Applications <br className="sm:block hidden" />
             Front-End enthusiast, Back-end connoisseur.
           </p>
-          <div className="flex flex-col justify-left mt-5">
+          <div className="flex flex-col justify-left mt-5"></div>
+          <div className="absolute xs: w-full justify-center">
             <LinksBtn />
           </div>
         </div>
       </div>
-      <div>&nbsp;</div>
-      <div>&nbsp;</div>
 
       {/* <ComputersCanvas /> */}
 

@@ -1,8 +1,25 @@
-import React, { useState } from 'react';
-import '../index.css';
-import ResumePdf from '../assets/Dhruv Shelke Resume.pdf';
+import React, { useEffect, useState } from 'react';
+import '../../index.css';
+import ResumePdf from 'C:/Users/Dhruv J/Desktop/3D Portfolio/src/assets/Dhruv Shelke Resume.pdf';
 
 const LinksBtn = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 500px)');
+
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = event => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
+    };
+  }, []);
   function gitVis() {
     var linkUrl = 'https://github.com/Dhruvshelke15';
 

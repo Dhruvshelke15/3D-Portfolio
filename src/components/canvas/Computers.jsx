@@ -1,11 +1,11 @@
-import React, { Suspense, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import React, { Suspense, useEffect, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 
-import CanvasLoader from "../Loader";
+import CanvasLoader from '../Loader';
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF('./desktop_pc/scene.gltf');
 
   return (
     <mesh>
@@ -33,18 +33,18 @@ const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mediaQuery = window.matchMedia('(max-width: 500px)');
 
     setIsMobile(mediaQuery.matches);
 
-    const handleMediaQueryChange = (event) => {
+    const handleMediaQueryChange = event => {
       setIsMobile(event.matches);
     };
 
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
 
     return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
   }, []);
 
