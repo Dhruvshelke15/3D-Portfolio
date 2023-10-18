@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../index.css';
-import ResumePdf from 'C:/Users/Dhruv J/Desktop/3D Portfolio/src/assets/Dhruv Shelke Resume.pdf';
+import ResumePdf from '../../assets/Dhruv Shelke Resume.pdf';
 
 const LinksBtn = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -20,38 +20,51 @@ const LinksBtn = () => {
       mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
   }, []);
-  function gitVis() {
-    var linkUrl = 'https://github.com/Dhruvshelke15';
 
-    window.open(linkUrl, '_blank');
-  }
-  function linkVis() {
-    var linkUrl = 'https://www.linkedin.com/in/dhruv-shelke-37347216b/';
-
-    window.open(linkUrl, '_blank');
+  function openInNewTab(url) {
+    window.open(url, '_blank');
   }
 
   return (
-    <div className="flex flex-row">
+    <div className={`flex flex-row ${isMobile ? 'flex-wrap' : ''}`}>
       <button
-        type="submit"
-        className="m-12 mt-20 bg-tertiary hover:bg-secondary hover:text-primary py-4 px-12 rounded-xl flex items-center outline-none w-fit text-white font-bold shadow-md shadow-primary transition duration-300 "
-        onClick={gitVis}
+        type="button"
+        className={`m-2 mt-2 md:m-2 md:mt-2 bg-tertiary hover:bg-secondary hover:text-primary py-2 px-6 md:py-4 md:px-6 rounded-xl flex items-center outline-none text-white font-bold shadow-md shadow-primary transition duration-300 `}
+        onClick={() => openInNewTab('https://github.com/Dhruvshelke15')}
       >
         Visit Github
       </button>
 
-      <button
-        type="submit"
-        className="m-12 mt-20 bg-tertiary hover:bg-blue-500 hover:text-primary py-4 px-12 rounded-xl flex items-center outline-none w-fit text-white font-bold shadow-md shadow-primary transition duration-300"
-        onClick={linkVis}
-      >
-        Visit LinkedIn
-      </button>
+      {isMobile ? (
+        <div className="m-2">
+          <button
+            type="button"
+            className="bg-tertiary hover:bg-blue-500 hover:text-primary py-2 px-6 rounded-xl flex items-center outline-none text-white font-bold shadow-md shadow-primary transition duration-300"
+            onClick={() =>
+              openInNewTab(
+                'https://www.linkedin.com/in/dhruv-shelke-37347216b/'
+              )
+            }
+          >
+            LinkedIn
+          </button>
+        </div>
+      ) : (
+        <button
+          type="button"
+          className="m-2 mt-2 md:m-2 md:mt-2 bg-tertiary hover:bg-blue-500 hover:text-primary py-2 px-6 rounded-xl flex items-center outline-none text-white font-bold shadow-md shadow-primary transition duration-300"
+          onClick={() =>
+            openInNewTab('https://www.linkedin.com/in/dhruv-shelke-37347216b/')
+          }
+        >
+          Visit LinkedIn
+        </button>
+      )}
+
       <a href={ResumePdf} download="Dhruv's Resume" target="_blank">
         <button
-          type="submit"
-          className="m-12 mt-20 bg-tertiary hover:bg-green-500 hover:text-primary py-4 px-12 rounded-xl flex items-center outline-none w-fit text-white font-bold shadow-md shadow-primary transition duration-300"
+          type="button"
+          className={`m-2 mt-2 md:m-2 md:mt-2 bg-tertiary hover:bg-green-500 hover:text-primary py-2 px-6 md:py-4 md:px-6 rounded-xl flex items-center outline-none text-white font-bold shadow-md shadow-primary transition duration-300`}
         >
           Download Resume
         </button>

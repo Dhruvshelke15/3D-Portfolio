@@ -1,5 +1,4 @@
 import { styles } from '../styles';
-import { ComputersCanvas } from './canvas';
 import LinksBtn from './canvas/LinksBtn';
 
 const Hero = () => {
