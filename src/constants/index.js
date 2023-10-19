@@ -292,7 +292,7 @@ const projects = [
     ],
     image: aimg,
     source_code_link: 'https://github.com/Dhruvshelke15/ai-image-generator',
-    visit_link: 'https://github.com/Dhruvshelke15/ai-image-generator',
+    visit_link: 'https://ai-image-generator-three-phi.vercel.app/',
   },
   {
     name: 'Tic Tac Toe',
